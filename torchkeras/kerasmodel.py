@@ -170,7 +170,7 @@ class EpochRunner:
 class KerasModel(torch.nn.Module):
     StepRunner, EpochRunner = StepRunner, EpochRunner
 
-    def __init__(self, net, loss_fn, metrics_dict=None, optimizer=None, lr_scheduler=None, **kwargs):
+    def __init__(self, model, loss, metrics=None, optimizer=None, lr_scheduler=None, **kwargs):
         """
         Initialize the KerasModel.
 
@@ -183,7 +183,7 @@ class KerasModel(torch.nn.Module):
             **kwargs: Additional keyword arguments
         """
         super().__init__()
-        self.net, self.loss_fn, self.metrics_dict = net, loss_fn, torch.nn.ModuleDict(metrics_dict)
+        self.net, self.loss_fn, self.metrics_dict = model, loss, torch.nn.ModuleDict(metrics)
         self.optimizer = optimizer if optimizer is not None else torch.optim.Adam(
             self.net.parameters(), lr=3e-4)
         self.lr_scheduler = lr_scheduler
