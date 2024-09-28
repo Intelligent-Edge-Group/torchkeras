@@ -18,7 +18,7 @@ torchkeras 是一个通用的pytorch模型训练模版工具，按照如下目�
 
 安装torchkeras
 ```
-pip install git+https://www.github.com/bojone/bert4keras.git
+pip install git+https://github.com/Intelligent-Edge-Group/torchkeras.git
 ```
 
 通过使用torchkeras，你不需要写自己的pytorch模型训练循环。你只要做这样两步就可以了。
