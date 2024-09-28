@@ -1,4 +1,4 @@
-# 炼丹师，这是你的梦中情炉吗?🌹🌹
+# torchkeras
 
 
 [English](README_en.md) | 简体中文
@@ -13,76 +13,7 @@ torchkeras 是一个通用的pytorch模型训练模版工具，按照如下目�
 * **好改** (修改简单，核心代码模块化，仅约200行，并提供丰富的修改使用案例)
 
 
-
-```python
-
-```
-
-## 1，炼丹之痛 😭😭
-
-
-无论是学术研究还是工业落地，pytorch几乎都是目前炼丹的首选框架。
-
-pytorch的胜出不仅在于其简洁一致的api设计，更在于其生态中丰富和强大的模型库。
-
-但是我们会发现不同的pytorch模型库提供的训练和验证代码非常不一样。
-
-torchvision官方提供的范例代码主要是一个关联了非常多依赖函数的train_one_epoch和evaluate函数，针对检测和分割各有一套。
-
-yolo系列的主要是支持ddp模式的各种风格迥异的Trainer，每个不同的yolo版本都会改动很多导致不同yolo版本之间都难以通用。
-
-抱抱脸的transformers库在借鉴了pytorch_lightning的基础上也搞了一个自己的Trainer，但与pytorch_lightning并不兼容。
-
-非常有名的facebook的目标检测库detectron2, 也是搞了一个它自己的Trainer，配合一个全局的cfg参数设置对象来训练模型。
-
-还有我用的比较多的语义分割的segmentation_models.pytorch这个库，设计了一个TrainEpoch和一个ValidEpoch来做训练和验证。
-
-在学习和使用这些不同的pytorch模型库时，尝试阅读理解和改动这些训练和验证相关的代码让我受到了一万点伤害。
-
-有些设计非常糟糕，嵌套了十几层，有些实现非常dirty，各种带下划线的私有变量满天飞。
-
-让你每次想要改动一下加入一些自己想要的功能时就感到望而却步。
-
-我不就想finetune一下模型嘛，何必拿这么多垃圾代码搞我？
-
-
-```python
-
-```
-
-## 2，梦中情炉 🤗🤗
-
-这一切的苦不由得让我怀念起tensorflow中keras的美好了。
-
-还记得keras那compile, fit, evalute三连击吗？一切都像行云流水般自然，真正的for humans。
-
-而且你看任何用keras实现的模型库，训练和验证都几乎可以用这一套相同的接口，没有那么多莫名奇妙的野生Trainer。
-
-我能否基于pytorch打造一个接口和keras一样简洁易用，功能强大，但是实现代码非常简短易懂，便于修改的模型训练工具呢？
-
-从2020年7月左右发布1.0版本到最近发布的3.86版本，我陆陆续续在工作中一边使用一边打磨一个工具，总共提交修改了70多次。
-
-现在我感觉我细心雕琢的这个作品终于长成了我心目中接近完美的样子。
-
-
-**她有一个美丽的名字：torchkeras.**
- 
-**是的，她兼具torch的灵动，也有keras的优雅~**
-
-**并且她的美丽，无与伦比~**
-
-**她，就是我的梦中情炉~ 🤗🤗**
-
-
-![](./data/torchkeras.png)
-
-
-```python
-
-```
-
-
-## 3，使用方法 🍊🍊
+## 使用方法 🍊🍊
 
 
 安装torchkeras
@@ -170,7 +101,7 @@ vlog.log_end()
 
 
 
-## 4，主要特性 🍉🍉
+## 主要特性
 
 
 torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版本以及这些功能借鉴或者依赖的库的来源见下表。
@@ -193,7 +124,7 @@ torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版
 
 ```
 
-## 5，基本范例 🌰🌰
+## 基本范例
 
 
 以下范例是torchkeras的基础范例，演示了torchkeras的主要功能。
@@ -214,7 +145,7 @@ torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版
 
 ```
 
-## 6，进阶范例 🔥🔥 
+## 进阶范例
 
 在炼丹实践中，遇到的数据集结构或者训练推理逻辑往往会千差万别。
 
@@ -351,21 +282,3 @@ examples目录下的范例库包括了使用torchkeras对一些非常常用的�
 |LLM微调——BaiChuan13B_MultiRounds 🔥| transformers |  [BaiChuan13B_MultiRounds](./examples/BaiChuan13B_MultiRounds——transformers.ipynb) |
 |LLM微调——Qwen7B_MultiRounds 🔥🔥🔥| transformers |  [Qwen7B_MultiRounds](./examples/Qwen7B_MultiRounds——transformers.ipynb) |
 |LLM微调——BaiChuan2_13B 🔥| transformers |  [BaiChuan2_13B](./examples/BaiChuan2_13B——transformers.ipynb) |
-
-
-```python
-
-```
-
-## 7，鼓励和联系作者 🎈🎈
-
-
-**如果本项目对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
-
-如果在torchkeras的使用中遇到问题，可以在项目中提交issue。
-
-如果想要获得更快的反馈或者与其他torchkeras用户小伙伴进行交流，
-
-可以在公众号算法美食屋后台回复关键字：**加群**。
-
-![](https://tva1.sinaimg.cn/large/e6c9d24egy1h41m2zugguj20k00b9q46.jpg)
